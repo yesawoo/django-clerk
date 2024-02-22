@@ -24,12 +24,14 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "Django>=4.0",
+]
 
 [project.urls]
-Documentation = "https://github.com/unknown/django-clerk#readme"
-Issues = "https://github.com/unknown/django-clerk/issues"
-Source = "https://github.com/unknown/django-clerk"
+Documentation = "https://github.com/yesawoo/django-clerk#readme"
+Issues = "https://github.com/yesawoo/django-clerk/issues"
+Source = "https://github.com/yesawoo/django-clerk"
 
 [tool.hatch.version]
 path = "src/django_clerk/__about__.py"

@@ -1,7 +1,7 @@
 import logging
 from django.contrib.auth import get_user_model
 
-from clerk.jwt import decode, validate
+from .jwt import decode, validate
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
