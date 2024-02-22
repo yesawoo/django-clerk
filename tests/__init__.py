@@ -1,3 +1,3 @@
-# SPDX-FileCopyrightText: 2024-present James Thigpen <james.r.thigpen@gmail.com>
+# SPDX-FileCopyrightText: 2024-present James Thigpen
 #
 # SPDX-License-Identifier: MIT
