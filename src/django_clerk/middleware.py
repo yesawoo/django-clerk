@@ -12,17 +12,22 @@ class ClerkMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        request = self.process_request(request)
+        response = self.get_response(request)
+        request = self.process_response(request, response)
+
+        return response
+
+    def process_request(self, request):
         token = self.get_auth_token(request)
         if token and self.validate_token(token):
             request.user = self.get_user_from_token(token)
             logger.debug(f"Request User: {request.user}")
         else:
             request.user = None
+        return request
 
-        ###
-        response = self.get_response(request)
-        ###
-
+    def process_response(self, request, response):
         return response
 
     def get_auth_token(self, request):
@@ -32,5 +37,22 @@ class ClerkMiddleware:
         return validate(token)
 
     def get_user_from_token(self, token):
+        """
+        Retrieves a user object based on the provided token.
+        This method can be overridden to customize the user 
+        retrieval process.
+
+        Args:
+            token (str): The token used to identify the user.
+
+        Returns:
+            User: The user object associated with the token. If
+            the user does not exist, a new user object will be created.
+        """
         data = decode(token)
-        return User.objects.get(email=data["email"])
+        if User.objects.filter(email=data["email"]).exists():
+            user = User.objects.get(email=data["email"])
+        else:
+            user = User.objects.create(email=data["email"])
+
+        return user
