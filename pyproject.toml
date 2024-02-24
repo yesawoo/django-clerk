@@ -14,7 +14,7 @@ authors = [
   { name = "James Thigpen", email = "james.r.thigpen@gmail.com" },
 ]
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 3 - Alpha",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
@@ -26,6 +26,7 @@ classifiers = [
 ]
 dependencies = [
   "Django>=4.0",
+  "PyJWT>=2.8",
 ]
 
 [project.urls]
