@@ -26,6 +26,7 @@ classifiers = [
 dependencies = [
   "Django>=4.0",
   "PyJWT>=2.8",
+  "svix",
 ]
 
 [project.urls]

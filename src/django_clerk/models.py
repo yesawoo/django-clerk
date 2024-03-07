@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class RawClerkEvent(models.Model):
+    json_blob = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
